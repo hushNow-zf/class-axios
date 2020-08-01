@@ -68,11 +68,10 @@ class Request {
       }
       return response
     }, (err) => {
-      console.log(err)
       this.closeMessage()
       err.data = {}
       err.data.message = '请求超时或者服务器异常，请联系管理员'
-      Message.error('请求超时或者服务器异常，请联系管理员')
+      Message.error(err.toString())
       return Promise.reject(err)
     })
   }

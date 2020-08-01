@@ -8,8 +8,13 @@
 export default {
   name: 'Home',
   mounted () {
-    this.$request.get('/getList', { a: 1 }, { isMessage: true }).then(res => {
+    this.$request.get('/getList', { a: 1, b: 2 }, { isMessage: true }).then(res => {
       console.log(333, res)
+    }).catch(err => {
+      console.log(111, err)
+    })
+    this.$request.post('/addList', { name: 'lzf' }, { isMessage: true }).then(res => {
+      console.log(444, res)
     })
   }
 }
